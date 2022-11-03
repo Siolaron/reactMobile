@@ -1,7 +1,8 @@
 import React, { useState } from "react";
-import { Image, StyleSheet, Text, ScrollView , FlatList} from 'react-native';
+import { StyleSheet, Text, View , FlatList, Button} from 'react-native';
+import { Link } from '@react-navigation/native';
 import { SafeAreaView } from "react-native-safe-area-context";
-import fruitsApi from "../apis/giphy";
+import { fruitsApi } from "../apis/giphy";
 import { useQuery } from '@tanstack/react-query';
 
 
@@ -13,16 +14,20 @@ export default function HomeScreen(){
     fruits = data;
   }
   
+  if (isLoading) return <Text>Loading...</Text>
+  if (isError) return <Text>An error has occurred: {error}</Text>
   
   return(
-    <ScrollView contentContainerStyle={{flexGrow:1}}>
-        <SafeAreaView style={styles.container}>
-        <FlatList
-        data={fruits}
-        renderItem={({item}) => <Text style={styles.text}>{item.name}</Text>}
-      />
-        </SafeAreaView>
-    </ScrollView>
+      <SafeAreaView style={styles.container}>
+          <View style={styles.view} contentContainerStyle={{flexGrow:1}}>
+            <FlatList
+            data={fruits}
+            renderItem={({item}) => <Link to={{ screen: 'FruitScreen', params: { id: item.id } }} style={styles.button}>
+            <Text style={styles.text}>{item.name}</Text>
+            </Link>}
+          />
+          </View>
+      </SafeAreaView>
   );
 }
 
@@ -32,11 +37,27 @@ const styles = StyleSheet.create({
     backgroundColor: '#fff',
     alignItems: 'center',
   },
-  text: {
-    color:'pink',
+  view:{
+    width:'100%',
   },
-  img:{
-    width:300,
-    height:300,
+  button: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    textAlign:'center',
+    paddingVertical: 12,
+    borderRadius: 20,
+    elevation: 3,
+    backgroundColor: '#fac881',
+    marginBottom:10,
+    width:'90%',
+    marginLeft:'5%',
+    marginRight:'5%',
+  },
+  text: {
+    fontSize: 16,
+    lineHeight: 21,
+    fontWeight: 'bold',
+    letterSpacing: 0.25,
+    color: 'white',
   },
 });
