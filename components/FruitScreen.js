@@ -23,6 +23,7 @@ export default function FruitScreen(){
         <SafeAreaView style={styles.container}>
           <Text style={styles.titre}>{fruit.name}</Text>
           <Text>{fruit.family}</Text>
+          <Text>Apport énergétiques (pour 100g)</Text>
           {Object.keys(fruit.nutritions).map((key)=> <Text key={key}>{key}: {fruit.nutritions[key]}</Text>)}
         </SafeAreaView>
     </ScrollView>
