@@ -1,12 +1,17 @@
 import React from "react";
-import { StyleSheet, Text, ScrollView } from 'react-native';
+import { StyleSheet, Text, ScrollView, StatusBar } from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
-import { useRoute } from '@react-navigation/native';
+import { useRoute, useFocusEffect } from '@react-navigation/native';
 import { fruitApiID } from "../apis/giphy";
 import { useQuery } from '@tanstack/react-query';
 
 
 export default function FruitScreen(){
+
+  useFocusEffect(()=>{
+    StatusBar.setBackgroundColor("#fec3a6")
+  });
+
   const route = useRoute();
   const { isLoading, isError, data, error} = useQuery({queryFn: () => fruitApiID(route.params.id), queryKey: ['fruit', route.params.id]})
 
