@@ -8,6 +8,7 @@ import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
+import theme from "./themes/default.ts";
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -48,6 +49,6 @@ const styles = StyleSheet.create({
       height: 40,
     },
   tabNavigation: {
-    backgroundColor: 'white'
+    backgroundColor: theme.colors.white
   }
 });

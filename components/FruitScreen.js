@@ -4,6 +4,7 @@ import { SafeAreaView } from "react-native-safe-area-context";
 import { useRoute, useFocusEffect } from '@react-navigation/native';
 import { fruitApiID } from "../apis/giphy";
 import { useQuery } from '@tanstack/react-query';
+import  theme  from '../themes/default.ts';
 
 
 export default function FruitScreen(){
@@ -27,7 +28,7 @@ export default function FruitScreen(){
     <ScrollView contentContainerStyle={{flexGrow:1}}>
         <SafeAreaView style={styles.container}>
           <Text style={styles.titre}>{fruit.name}</Text>
-          <Text>{fruit.family}</Text>
+          <Text style={styles.family}>{fruit.family}</Text>
           <Text>Apport énergétiques (pour 100g)</Text>
           {Object.keys(fruit.nutritions).map((key)=> <Text key={key}>{key}: {fruit.nutritions[key]}</Text>)}
         </SafeAreaView>
@@ -38,16 +39,20 @@ export default function FruitScreen(){
 const styles = StyleSheet.create({
   container: {
     flexGrow:1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
+    backgroundColor:theme.colors.salmon,
   },
   titre: {
-    color:'black',
-    fontSize:40,
-    fontWeight: 'bold',
-    letterSpacing: 0.25,
-    backgroundColor:'#fec3a6',
+    color: theme.colors.black,
+    fontSize: theme.fontSize.xl5,
+    fontWeight: theme.fontWeight.bold,
+    letterSpacing: theme.spacing.tiny,
     width:'100%',
-    textAlign:'center'
+    textAlign: theme.align.center,
+    borderBottomWidth: 0.25,
+    borderRadius:2,
+    borderBottomColor: theme.colors.black,
   },
+  family:{
+    textAlign: 'center',
+  }
 });

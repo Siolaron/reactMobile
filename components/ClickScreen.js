@@ -2,6 +2,7 @@ import { useFocusEffect } from "@react-navigation/native";
 import React, { useState } from "react";
 import { Image, StyleSheet, Text, ScrollView , TouchableOpacity,StatusBar} from 'react-native';
 import { SafeAreaView } from "react-native-safe-area-context";
+import theme from "../themes/default";
 
 export default function ClickScreen(){
   const [count, setCount] = useState(0);
@@ -26,21 +27,21 @@ export default function ClickScreen(){
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#000',
-    alignItems: 'center',
-    justifyContent: 'center',
-    color: 'pink',
+    backgroundColor: theme.colors.black,
+    alignItems: theme.align.center,
+    justifyContent: theme.align.center,
+    color: theme.colors.pink,
   },
   text: {
-    color:'pink',
+    color: theme.colors.pink,
   },
   img:{
-    width:300,
-    height:300,
+    width: theme.img.mdLg,
+    height: theme.img.mdLg,
   },
   button: {
-    alignItems: "center",
-    backgroundColor: "#DDDDDD",
-    padding: 10
+    alignItems: theme.align.center,
+    backgroundColor: theme.colors.pink,
+    padding: theme.spacing.demiLG
   },
 });

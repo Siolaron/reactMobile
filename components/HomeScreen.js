@@ -4,6 +4,7 @@ import { Link, useFocusEffect } from '@react-navigation/native';
 import { SafeAreaView } from "react-native-safe-area-context";
 import { fruitsApi } from "../apis/giphy";
 import { useQuery } from '@tanstack/react-query';
+import theme from "../themes/default";
 
 export default function HomeScreen(){
   useFocusEffect(()=>{
@@ -51,30 +52,30 @@ export default function HomeScreen(){
 const styles = StyleSheet.create({
   container: {
     flexGrow:1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
+    backgroundColor: theme.colors.white,
+    alignItems: theme.align.center,
   },
   view:{
     width:'100%',
   },
   button: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    textAlign:'center',
-    paddingVertical: 12,
-    borderRadius: 20,
+    alignItems: theme.align.center,
+    justifyContent: theme.align.center,
+    textAlign:theme.align.center,
+    paddingVertical: theme.spacing.demiXL,
+    borderRadius: theme.radius.double,
     elevation: 3,
-    backgroundColor: '#fac881',
-    marginBottom:10,
+    backgroundColor: theme.colors.peach,
+    marginBottom: theme.spacing.demiLG,
     width:'90%',
     marginLeft:'5%',
     marginRight:'5%',
   },
   text: {
-    fontSize: 16,
-    lineHeight: 21,
-    fontWeight: 'bold',
-    letterSpacing: 0.25,
-    color: 'white',
+    fontSize: theme.fontSize.md,
+    lineHeight: theme.lineHeight.md,
+    fontWeight: theme.fontWeight.bold,
+    letterSpacing: theme.spacing.tiny,
+    color: theme.colors.white,
   },
 });
