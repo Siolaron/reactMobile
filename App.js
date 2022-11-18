@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { StyleSheet, Image } from 'react-native';
+import { StyleSheet, Image, StatusBar } from 'react-native';
 import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import ClickScreen from "./components/ClickScreen";
@@ -37,6 +37,7 @@ export default function App() {
         }}/>
       </Tab.Navigator>
     </NavigationContainer>
+   
     </QueryClientProvider>
   );
 }

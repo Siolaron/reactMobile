@@ -1,11 +1,15 @@
 import React, { useState } from "react";
-import { StyleSheet, Text, View , FlatList, Button, RefreshControl, ScrollView} from 'react-native';
-import { Link } from '@react-navigation/native';
+import { StyleSheet, Text, View , FlatList, Button, RefreshControl, ScrollView, StatusBar} from 'react-native';
+import { Link, useFocusEffect } from '@react-navigation/native';
 import { SafeAreaView } from "react-native-safe-area-context";
 import { fruitsApi } from "../apis/giphy";
 import { useQuery } from '@tanstack/react-query';
 
 export default function HomeScreen(){
+  useFocusEffect(()=>{
+    StatusBar.setBackgroundColor("#fac881");
+  });
+  
   const [refreshing, setRefreshing] = React.useState(false);
   const onRefresh = React.useCallback(() => {
     setRefreshing(true);
@@ -21,8 +25,6 @@ export default function HomeScreen(){
   if (isLoading) return <Text>Loading...</Text>
   if (isError) return <Text>An error has occurred: {error}</Text>
   
-
-
   return(
       <SafeAreaView style={styles.container}>
           <View 
