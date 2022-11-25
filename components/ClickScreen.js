@@ -9,7 +9,7 @@ export default function ClickScreen(){
   const onPress = () => setCount(prevCount => prevCount + 1);
   
   useFocusEffect(()=>{
-    StatusBar.setBackgroundColor("#000");
+    StatusBar.setBackgroundColor(theme.colors.pink);
   });
   
     return(
