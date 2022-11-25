@@ -2,33 +2,13 @@ const theme = {
     colors: {
       transparent: 'transparent',
       white: 'white',
-      whiteTransparent: '#FFFFFFCC',
-      black: '#000000',
-      primary0: '#C4317F',
-      primary1: '#920262',
-      primary3: '#B26C9E',
-      primary6: '#F4E5EF',
-      primary7: '#F9F3F7',
-      secondary1: '#A89062',
-      secondary5: '#EDE9E1',
-      gray1: '#6F6F6F',
-      gray2: '#414141',
-      gray3: '#595959',
-      gray4: '#A6A6A6',
-      gray5: '#BFBFBF',
-      gray6: '#F0F0F0',
-      gray7: '#F9F9F9',
-      red: 'red',
-      successBorder: '#0D823C',
-      successSurface: '#D8F7E6',
-      errorBorder: '#EE1E34',
-      errorSurface: '#FFE5E8',
-      border1: '#DF2F9B',
-      border2: '#1C6BFF',
-      green: '#34C759',
-      avatar: '#e3e8f0',
+      peach: '#fac881',
+      salmon: '#fec3a6',
+      black: "#000",
+      pink: "pink"
     },
     spacing: {
+      tiny: 0.25 as const,
       quarterSm: 2 as const,
       quarter: 4 as const,
       demi: 8 as const,
@@ -48,6 +28,13 @@ const theme = {
       sixfold: 96 as const,
       octuple: 128 as const,
     },
+    lineHeight: {
+      tiny: 1.5 as const,
+      md : 21 as const,
+    },
+    img:{
+      mdLg: 300 as const,
+    },
     fontSize: {
       xxs: 11 as const,
       xs: 12 as const,
@@ -58,6 +45,7 @@ const theme = {
       xl: 22 as const,
       xl2: 24 as const,
       xl3: 26 as const,
+      xl5: 40 as const,
       xl6: 45 as const,
     },
     fontWeight: {
@@ -71,7 +59,7 @@ const theme = {
       demi: 4 as const,
       base: 8 as const,
       baseLg: 10 as const,
-      double: 16 as const,
+      double: 20 as const,
       triple: 25 as const,
       quadruple: 32 as const,
     },
@@ -88,6 +76,10 @@ const theme = {
       roboto500: 'Roboto-Medium',
       beyondTheMountains: 'BeyondTheMountains',
     },
+    align:{
+      center: 'center',
+      left: 'left',
+    }
   };
   
   export default theme;

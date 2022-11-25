@@ -4,10 +4,12 @@ import { NavigationContainer } from '@react-navigation/native';
 import { createMaterialBottomTabNavigator } from '@react-navigation/material-bottom-tabs';
 import ClickScreen from "./components/ClickScreen";
 import HomeStack from "./stack/HomeStack";
+import { MaterialCommunityIcons } from '@expo/vector-icons';
 import {
   QueryClient,
   QueryClientProvider,
 } from '@tanstack/react-query'
+import theme from "./themes/default.ts";
 
 const Tab = createMaterialBottomTabNavigator();
 
@@ -18,22 +20,16 @@ export default function App() {
     <NavigationContainer >
       <Tab.Navigator barStyle={{ backgroundColor: 'white' }}>
         <Tab.Screen name="Accueil" component={HomeStack} options={{
-          tabBarIcon: ({ color }) => (
-            <Image
-              style={styles.bottomTabIcon}
-              source={require('./assets/index.png')                  
-              }/>
-         ), 
-         tabBarLabel: ''             
+          title: "Fruit",
+          tabBarIcon: () => (
+            <MaterialCommunityIcons name="fruit-watermelon" size={24} color={theme.colors.pink} />
+         ),             
         }}/>
         <Tab.Screen name="Click" component={ClickScreen} options={{
-          tabBarIcon: ({ color }) => (
-            <Image
-              style={styles.bottomTabIcon}
-              source={require('./assets/click.png')                  
-              }/>
-         ), 
-         tabBarLabel: ''             
+          title: "Click",
+          tabBarIcon: () => (
+            <MaterialCommunityIcons name="cursor-default-click" size={24} color={theme.colors.pink} />
+         ),       
         }}/>
       </Tab.Navigator>
     </NavigationContainer>
@@ -41,13 +37,3 @@ export default function App() {
     </QueryClientProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  bottomTabIcon: {
-      width: 40,
-      height: 40,
-    },
-  tabNavigation: {
-    backgroundColor: 'white'
-  }
-});
