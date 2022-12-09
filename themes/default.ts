@@ -77,8 +77,8 @@ const theme = {
       beyondTheMountains: 'BeyondTheMountains',
     },
     align:{
-      center: 'center',
-      left: 'left',
+      center: 'center' as const,
+      left: 'left' as const,
     }
   };
   

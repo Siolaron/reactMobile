@@ -1,7 +1,7 @@
-import React, { useState } from "react";
+import React from 'react';
 import HomeScreen from '../components/HomeScreen';
 import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import FruitScreen from "../components/FruitScreen";
+import FruitScreen from '../components/FruitScreen';
 
 
 const Stack = createNativeStackNavigator();
