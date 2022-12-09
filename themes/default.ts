@@ -79,7 +79,8 @@ const theme = {
     align:{
       center: 'center' as const,
       left: 'left' as const,
-    }
+    },
+    
   };
   
   export default theme;
