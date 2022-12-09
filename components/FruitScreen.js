@@ -1,5 +1,5 @@
 import React from 'react';
-import { StyleSheet, Text, ScrollView, StatusBar } from 'react-native';
+import { StyleSheet, Text, ScrollView, StatusBar, View } from 'react-native';
 import { useRoute, useFocusEffect } from '@react-navigation/native';
 import { fruitID } from '../apis/fruitApi';
 import { useQuery } from '@tanstack/react-query';
@@ -28,7 +28,7 @@ export default function FruitScreen(){
       <Text style={styles.title}>{fruit.name}</Text>
       <Text style={styles.family}>{fruit.family}</Text>
       <Text style={styles.apport}>Apport énergétiques (pour 100g) :</Text>
-      {Object.keys(fruit.nutritions).map((key)=> <Text style={styles.nutritions} key={key}><Text style={styles.name}>{key}:</Text><Text style={styles.number}>{fruit.nutritions[key]} g</Text></Text>)}
+      {Object.keys(fruit.nutritions).map((key)=> <View style={styles.nutritions} key={key}><Text style={styles.name}>{key}:</Text><Text style={styles.number}>{fruit.nutritions[key]} g</Text></View>)}
     </ScrollView>
   );
 }
@@ -37,6 +37,7 @@ const styles = StyleSheet.create({
   container: {
     flexGrow:1,
     backgroundColor:theme.colors.white,
+    paddingBottom: theme.spacing.base
   },
   title: {
     color: theme.colors.black,
@@ -50,7 +51,7 @@ const styles = StyleSheet.create({
     backgroundColor:theme.colors.salmon,
   },
   family:{
-    textAlign: 'center',
+    textAlign: theme.align.center,
     marginBottom: theme.spacing.base,
     borderBottomWidth: 0.25,
     borderBottomColor: theme.colors.black,
@@ -66,10 +67,15 @@ const styles = StyleSheet.create({
     fontSize: theme.fontSize.md,
     fontWeight: theme.fontWeight.normal,
     marginLeft: theme.spacing.demi,
+    flexDirection: 'row',
+    justifyContent: 'space-between',
+    marginRight: theme.spacing.base,
+    paddingBottom: theme.spacing.base,
+    paddingTop: theme.spacing.base,
+    borderBottomWidth: 0.25,
+    borderBottomColor: theme.colors.black,
   },
   name: {
     textTransform: 'capitalize',
   },
-  number:{
-  }
 });
