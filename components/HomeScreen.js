@@ -1,10 +1,9 @@
-import React, { useState } from "react";
-import { StyleSheet, Text, View , FlatList, Button, RefreshControl, ScrollView, StatusBar} from 'react-native';
+import React from 'react';
+import { StyleSheet, Text, View , FlatList, RefreshControl, StatusBar} from 'react-native';
 import { Link, useFocusEffect } from '@react-navigation/native';
-import { SafeAreaView } from "react-native-safe-area-context";
-import { fruitsAll } from "../apis/fruitApi";
+import { fruitsAll } from '../apis/fruitApi';
 import { useQuery } from '@tanstack/react-query';
-import theme from "../themes/default";
+import theme from '../themes/default';
 
 export default function HomeScreen(){
   useFocusEffect(()=>{
@@ -16,32 +15,22 @@ export default function HomeScreen(){
     setRefreshing(true);
     refetch().then(setRefreshing(false))
   }, []);
-  const { isLoading, isError, data, error, refetch, isRefetching} = useQuery(['fruits'], fruitsAll)
-
-  let fruits
-  if(data){
-    fruits = data;
-  }
+  const { isLoading, isError, data: fruits, error, refetch, isRefetching} = useQuery(['fruits'], fruitsAll)
   
   if (isLoading) return <Text>Loading...</Text>
   if (isError) return <Text>An error has occurred: {error}</Text>
   
   return(
-      <View 
-      style={styles.view} contentContainerStyle={{flexGrow:1}}
-      >
-        <FlatList
-        refreshControl={
-          <RefreshControl
-            refreshing={refreshing}
-            onRefresh={onRefresh}
-          />
-        }
-        data={fruits}
-        renderItem={({item}) => <Link to={{ screen: 'FruitScreen', params: { id: item.id } }} style={styles.button}
-        nestedScrollEnabled>
-        <Text style={styles.text}>{item.name}</Text>
-        </Link>}
+    <View style={styles.view} contentContainerStyle={{flexGrow:1}}>
+      <FlatList
+      refreshControl={
+        <RefreshControl
+          refreshing={refreshing}
+          onRefresh={onRefresh}
+        />
+      }
+      data={fruits}
+      renderItem={({item}) => <Link to={{ screen: 'FruitScreen', params: { id: item.id } }} style={styles.button} nestedScrollEnabled><Text style={styles.text}>{item.name}</Text></Link>}
       />
     </View>
   );

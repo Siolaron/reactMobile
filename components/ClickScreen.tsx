@@ -1,8 +1,8 @@
-import { useFocusEffect } from "@react-navigation/native";
-import React, { useState } from "react";
-import { Image, StyleSheet, Text, ScrollView , TouchableOpacity,StatusBar} from 'react-native';
-import { SafeAreaView } from "react-native-safe-area-context";
-import theme from "../themes/default";
+import { useFocusEffect } from '@react-navigation/native';
+import React, { useState } from 'react';
+import { StyleSheet, Text, ScrollView , TouchableOpacity, StatusBar} from 'react-native';
+import { SafeAreaView } from 'react-native-safe-area-context';
+import theme from '../themes/default';
 
 export default function ClickScreen(){
   const [count, setCount] = useState(0);

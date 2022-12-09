@@ -1,8 +1,7 @@
-import React from "react";
+import React from 'react';
 import { StyleSheet, Text, ScrollView, StatusBar } from 'react-native';
-import { SafeAreaView } from "react-native-safe-area-context";
 import { useRoute, useFocusEffect } from '@react-navigation/native';
-import { fruitID } from "../apis/fruitApi";
+import { fruitID } from '../apis/fruitApi';
 import { useQuery } from '@tanstack/react-query';
 import  theme  from '../themes/default.ts';
 
